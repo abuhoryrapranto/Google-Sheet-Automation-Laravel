@@ -13,5 +13,6 @@ use App\Http\Controllers\GoogleSheetController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [GoogleSheetController::class, 'fetchDataFromGoogleSheet']);
+Route::get('/', function() {
+    return view('welcome');
+});
