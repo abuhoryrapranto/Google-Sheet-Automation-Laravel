@@ -60,6 +60,30 @@ class GoogleSheet
             ->update($sheet_id, $range, $body, $params);
     }
 
+    public function saveToGoogleSheetRemovePrevious(array $data, $sheet_id, $sheet_name = null)
+    {
+        if($sheet_name == null) {
+            $sheet_name = 'Sheet1';
+        }
+
+
+            $range = $sheet_name. "!A2";
+
+        $body = new \Google_Service_Sheets_ValueRange([
+            'values' => $data
+        ]);
+
+        $params = [
+            'valueInputOption' => 'USER_ENTERED',
+        ];
+
+        
+
+        return $this->googleSheetService
+            ->spreadsheets_values
+            ->update($sheet_id, $range, $body, $params);
+    }
+
     private function getDimensions($spreadSheetId, $sheet_name = null)
     {
         try {

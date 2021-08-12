@@ -21,3 +21,5 @@ use App\Http\Controllers\GoogleSheetController;
 
 Route::get('/fetch', [GoogleSheetController::class, 'fetchDataFromGoogleSheet']);
 Route::get('/item-wise-sales', [GoogleSheetController::class, 'appendItemWiseSales']);
+Route::get('/brand-wise-sales', [GoogleSheetController::class, 'appendBrandWiseSales']);
+Route::get('/order-wise-sales', [GoogleSheetController::class, 'appendOrderWiseSales']);
